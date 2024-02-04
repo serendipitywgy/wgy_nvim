@@ -98,11 +98,11 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
 --     end
 -- end))
 
-vim.keymap.set('i', '<CR>', 'copilot#Accept("\\<CR>")', {
-    silent = true,
-    expr = true,
-    replace_keycodes = false,
-})
+-- vim.keymap.set('i', '<CR>', 'copilot#Accept("\\<CR>")', {
+--     silent = true,
+--     expr = true,
+--     replace_keycodes = false,
+-- })
 vim.keymap.set('i', '<M-BS>', '<Plug>(copilot-dismiss)')
 vim.keymap.set('i', '<M-\\>', '<Plug>(copilot-suggest)')
 vim.keymap.set('i', '<M-[>', '<Plug>(copilot-previous)')
