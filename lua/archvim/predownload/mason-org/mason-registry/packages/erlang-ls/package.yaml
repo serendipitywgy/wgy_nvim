@@ -1,0 +1,34 @@
+---
+name: erlang-ls
+description: |
+  Erlang LS is a language server providing language features for the Erlang programming language. The server works with
+  Emacs, VSCode, Sublime Text 3, Vim and probably many more text editors and IDE which adhere to the LSP protocol.
+homepage: https://erlang-ls.github.io/
+licenses:
+  - Apache-2.0
+languages:
+  - Erlang
+categories:
+  - DAP
+  - LSP
+
+source:
+  # renovate:datasource=github-tags
+  id: pkg:github/erlang-ls/erlang_ls@0.48.0
+  build:
+    - target: win
+      run: |
+        rebar3 escriptize
+        rebar3 as dap escriptize
+      erlang_ls: _build/default/bin/erlang_ls.cmd
+      els_dap: _build/dap/bin/els_dap.cmd
+    - target: unix
+      run: |
+        </dev/null rebar3 escriptize
+        </dev/null rebar3 as dap escriptize
+      erlang_ls: _build/default/bin/erlang_ls
+      els_dap: _build/dap/bin/els_dap
+
+bin:
+  erlang_ls: "{{source.build.erlang_ls}}"
+  els_dap: "{{source.build.els_dap}}"

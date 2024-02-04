@@ -1,0 +1,21 @@
+---
+name: matlab-language-server
+description: Language Server Protocol implementation for the MATLAB language.
+homepage: https://github.com/mathworks/MATLAB-language-server
+licenses:
+  - MIT
+languages:
+  - Matlab
+categories:
+  - LSP
+
+source:
+  # renovate:datasource=git-refs
+  id: pkg:github/mathworks/MATLAB-language-server@8d205eb5e6235f89b39625ada6c62b303bb66fdb
+  build:
+    run: |
+      npm install
+      npm run package
+
+bin:
+  matlab-language-server: node:out/index.js
